@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>	
+	<public-server>
+		<cookie-secret>easyoffergo</cookie-secret>
+		<http-port>8080</http-port>
+		<https-port>8443</https-port>		
+		<session-store>mongodb://localhost:27017/sessionDB</session-store>
+	</public-server>
+	<database>mongodb://localhost:27017/easyoffergoDB</database>
+</configuration>	

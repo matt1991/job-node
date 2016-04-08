@@ -1,0 +1,179 @@
+<div id="managerContainer">	
+	<style>
+		.customed-asterisk{
+			vertical-align: top;
+    		font-size: xx-small;
+    		color: red;
+		}
+		textarea.form-control {
+			height:10em;
+		}
+	</style>
+	<div id="editArea" class="container">
+		<form class="form-horizontal" data-toggle="validator" name="jobForm" role="form">
+			<!-- 公司描述 -->
+            <div class="form-group">
+                <label for="companyName" class="col-sm-2 control-label">
+                	<i class="glyphicon glyphicon-asterisk customed-asterisk"/>公司名称
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" name="companyName" class="form-control" id="companyName" ng-model="theJob.Company.Name"
+                     placeholder="公司名称" required>
+       
+                     <p ng-show="jobForm.companyName.$invalid" class="help-block">
+                     请输入公司名称！</p>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="companyLocation" class="col-sm-2 control-label">
+                	<i class="glyphicon glyphicon-asterisk customed-asterisk"/>公司地址
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" name="companyLocation" class="form-control" id="companyLocation" ng-model="theJob.Company.Location"
+                     placeholder="公司地址" required>
+       
+                     <p ng-show="jobForm.companyLocation.$invalid" class="help-block">
+                     请输入公司地址！</p>
+                </div>
+            </div>            
+            <div class="form-group">
+                <label for="companyWebsite" class="col-sm-2 control-label">公司网站</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="companyWebsite" ng-model="theJob.Company.Webiste"
+                     placeholder="公司网站">
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="companyDesc" class="col-sm-2 control-label">
+                	<i class="glyphicon glyphicon-asterisk customed-asterisk"/>公司介绍
+                </label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" name="companyDesc" id="companyDesc" ng-model="theJob.Company.Description"
+                     placeholder="公司介绍" required/>
+                     <p ng-show="jobForm.companyDesc.$invalid" class="help-block">
+                     请输入公司介绍！</p>
+                </div>
+            </div>     
+            
+ 			<!-- 职位描述 -->
+            <div class="form-group">
+                <label for="jobPosition" class="col-sm-2 control-label">
+                	<i class="glyphicon glyphicon-asterisk customed-asterisk"/>职位名称
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" name="jobPosition" class="form-control" id="jobPosition" ng-model="theJob.Position"
+                     placeholder="职位名称" required/>
+                     <p ng-show="jobForm.jobPosition.$invalid" class="help-block">
+                     请输入职位名称！</p>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="jobDuty" class="col-sm-2 control-label">
+                	<i class="glyphicon glyphicon-asterisk customed-asterisk"/>工作职责
+                </label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" name="jobDuty" id="jobDuty" ng-model="theJob.Description"
+                     placeholder="工作职责" required/>
+                     <p ng-show="jobForm.jobDuty.$invalid" class="help-block">
+                     请输入工作职责！</p>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="jobRequirement" class="col-sm-2 control-label">
+                	<i class="glyphicon glyphicon-asterisk customed-asterisk"/>工作要求
+                </label>
+                <div class="col-sm-8">
+<!--                     <textarea class="form-control" name="jobRequirement" id="jobRequirement" ng-model="theJob.Requirement" -->
+<!--                      placeholder="工作要求" required/> -->
+<!--                     <p ng-show="jobForm.jobRequirement.$invalid" class="help-block"> -->
+<!--                      请输入工作要求！</p> -->
+					<text-angular ng-model="theJob.Requirement"></text-angular>
+			
+                </div>
+            </div> 
+             <div class="form-group">
+                <label for="jobWelfares" class="col-sm-2 control-label">福利</label>
+                <div class="col-sm-8">
+					<div>
+						<div class="col-sm-3">
+							<label>医疗保险 <input type="checkbox" ng-model="theJob.Welfares.Medical"/></label>
+						</div>
+						<div class="col-sm-3">
+							<label>年底双薪 <input type="checkbox" ng-model="theJob.Welfares.DoublePay"/></label>
+						</div>
+						<div class="col-sm-3">
+							<label>MPF    <input type="checkbox" ng-model="theJob.Welfares.MPF"/></label>
+						</div>
+						<div class="col-sm-3">
+							<label>双休假期 <input type="checkbox" ng-model="theJob.Welfares.Weekends"/></label>
+						</div>												
+						
+						
+						
+					</div>
+                </div>
+            </div>              
+            <div class="form-group form-inline">
+                <label for="jobWelfares" class="col-sm-2 control-label">
+                	<i class="glyphicon glyphicon-asterisk customed-asterisk"/>薪水
+               	</label>
+                <div class="col-sm-8">
+                	<div class="col-sm-3">
+                		<label><input type="checkbox" ng-model="theJob.IsNegotiable"/>面谈</label>
+                	</div>
+                	<div ng-hide="theJob.IsNegotiable">
+	                 	<input class="form-control" type="number" ng-model="theJob.SalaryMin"/>
+	                	~
+	                	<input class="form-control" type="number" ng-model="theJob.SalaryMax"/>               	
+                	</div>  	
+                </div>
+            </div>   
+            <!--联系人  -->
+            <div class="form-group">
+                <label for="jobContact" class="col-sm-2 control-label">
+                	<i class="glyphicon glyphicon-asterisk customed-asterisk"/>联系人
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" name="jobContact" class="form-control" id="jobContact" ng-model="theJob.ContactName"
+                     placeholder="联系人" required/>
+                    <p ng-show="jobForm.jobContact.$invalid" class="help-block">
+                     请输入联系人！</p>                     
+                </div>
+            </div>   
+            <div class="form-group">
+                <label for="jobEmail" class="col-sm-2 control-label">
+                	<i class="glyphicon glyphicon-asterisk customed-asterisk"/>邮箱
+               	</label>
+                <div class="col-sm-8">
+                    <input type="email" name="jobEmail" class="form-control" id="jobEmail" ng-model="theJob.Email"
+                     placeholder="邮箱" required/>
+                     <p ng-show="jobForm.jobEmail.$invalid" class="help-block">请输入正确的邮箱地址.</p>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="jobPhone" class="col-sm-2 control-label">电话</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="jobPhone" ng-model="theJob.Phone"
+                     placeholder="电话"/>
+                </div>
+            </div> 
+             <div class="form-group">
+                <label for="jobWechat" class="col-sm-2 control-label">微信</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="jobWechat" ng-model="theJob.Wechat"
+                     placeholder="微信"/>
+                </div>
+            </div>      
+            <div class="form-group">
+            	<div class="col-sm-8  pull-right">
+	              	<div class="btn-group">
+		            	<button ng-disabled="jobForm.$invalid" class="btn btn-primary" ng-click="saveJob()">保存</button>
+		            	<button ng-disabled="jobForm.$invalid || theJob.Status == 'EXPIRED'" class="btn btn-success" ng-click="publishJob()">发布</button>
+	            	</div>              	
+            	</div>
+        
+            </div>
+                                                                              
+		</form>
+	</div> 
+</div>

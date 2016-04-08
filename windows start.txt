@@ -1,0 +1,9 @@
+
+
+1. first install nvm, mongoDB;
+2. npm install the project;
+3. install nodemon to run background
+4. run as follow code;
+
+Start-Process .\mongod.exe -ArgumentList '--dbpath', 'c:\mongoData'
+ Start-Process nodemon -ArgumentList app.js

@@ -1,0 +1,32 @@
+<div class="login-panel">              
+    <div class="container">
+        <div id="errorMessages" class="alert alert-danger" data-ng-show="errorMessages" 
+        	data-ng-bind="errorMessages"></div>
+        <form class="col-sm-6 col-sm-offset-3 form-horizontal" name="loginForm" role="form" ng-submit="login()">
+	        <fieldset>
+	        	<legend>欢迎来到帮帮推</legend>
+	            <div class="form-group">
+	                <label for="loginName" class="col-sm-2 control-label">邮箱</label>
+	                <div class="col-sm-10">
+	                    <input type="email" class="form-control" name="email" id="loginName" ng-model="user.LoginName" 
+	                    	placeholder="LoginName" required>
+                    	<p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block">Enter a valid email.</p>
+	                </div>
+	            </div>        
+	            <div class="form-group">
+	                <label for="password" class="col-sm-2 control-label">密码</label>
+	                <div class="col-sm-10">
+	                    <input type="password" class="form-control" id="password" ng-model="user.Password" 
+	                    	placeholder="Password" required>
+	                </div>
+	            </div>        
+	            <div class="form-group">
+	                <div class="col-sm-offset-2 col-sm-10">
+	                    <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid">登陆</button>
+	                    <button ui-sref="authen.register" type="button" class="btn btn-default">注册</button>
+	                </div>
+	            </div>	        
+	        </fieldset>
+        </form>
+    </div>
+</div>

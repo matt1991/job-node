@@ -1,0 +1,26 @@
+<div class="navbar navbar-default" role="navigation">      
+    <div class="container">    
+        <div class="navbar-header">
+            <button type="button" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>                    
+            <a class="navbar-brand" ui-sref="job.manage" ng-if="loginedUser">帮帮推</a>
+            <a class="navbar-brand" ui-sref="authen.login" ng-if="!loginedUser">帮帮推</a>
+        </div>
+        <div collapse="navCollapsed" class="collapse navbar-collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav navbar-left" role="menu">
+
+                <li class="menu-item"><a ui-sref="job.manage" data-ng-show="loginedUser">我发布的职位</a></li>         
+            </ul>        
+
+            <ul class="nav navbar-nav navbar-right">                       
+                <li class="menu-item"><a ui-sref="authen.login" data-ng-hide="loginedUser">登陆 <i class="fa fa-user"></i></a></li>
+                <li class="menu-item"><a ui-sref="authen.register" data-ng-hide="loginedUser">注册 <i class="fa fa-user"></i>+</a></li>
+                <li class="menu-item"><a ui-sref="authen.login" ng-click="logout()" data-ng-show="loginedUser">登出 <i class="fa fa-sign-out"></i></a></li>
+            </ul>
+        </div>    
+    </div>
+</div>

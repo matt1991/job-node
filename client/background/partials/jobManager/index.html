@@ -1,0 +1,27 @@
+<div id="managerContainer">
+	<style>
+		.alertsArea{
+			position:absolute;
+			width:70%;
+			z-index:9999;
+		}
+		.grid{
+			width: 600px;
+			height:600px;
+		}
+	</style>	
+	<div id="managerButtons" class="container">
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="btn btn-primary" ng-click="newJob()">+发布新职位</div>
+			</div>			
+		    <div class="col-sm-5">
+<!-- 		    	<div alerter  class="alertsArea"/> -->
+		    </div>
+		    <div class="col-sm-4"/>
+		</div>
+	</div> 
+	<div class="container" id="jobList" style="margin-top:30px;">
+	    <div  id="jobGrid" ui-grid="gridOptions" ui-grid-pagination ui-grid-selection  ui-grid-auto-resize ui-grid-resize-columns></div>		
+	</div>
+</div>

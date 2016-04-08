@@ -1,0 +1,37 @@
+<div class="login-panel">           
+    <div class="container">
+        <div id="errorMessages" class="alert alert-danger" data-ng-show="errorMessages" data-ng-bind="errorMessages"></div>
+        <form class="col-sm-6 col-sm-offset-3 form-horizontal" name="loginForm" role="form" ng-submit="register()">
+            <fieldset>
+                <legend>账号注册</legend>
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">邮箱</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" name="email" id="email" ng-model="user.email" placeholder="Email" required>
+                    	 <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-2 control-label">密码</label>
+                    <div class="col-sm-10">
+                        <input type="password" name="password" class="form-control" id="password" 
+                        	ng-model="user.password" ng-minlength="6" ng-maxlength="10" placeholder="Password" required>
+                    	 	<p ng-show="loginForm.password.$error.minlength" class="help-block">密码太短，大于等于6</p>
+            				<p ng-show="loginForm.password.$error.maxlength" class="help-block">密码太长，小于等于10</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword" class="col-sm-2 control-label">确认密码</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" ng-model="user.confirmPassword" placeholder="Confirm Password" data-password-verify="user.password" required> 
+                    </div>
+                </div>          
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">注册</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

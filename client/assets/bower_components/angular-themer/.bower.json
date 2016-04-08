@@ -1,0 +1,25 @@
+{
+  "name": "angular-themer",
+  "version": "0.3.1",
+  "main": "dist/themer.min.js",
+  "ignore": [
+    "demo",
+    "node_modules",
+    "src",
+    ".gitignore",
+    "Gruntfile.js",
+    "karma-unit.js",
+    "index.html"
+  ],
+  "homepage": "https://github.com/fdomig/angular-themer",
+  "_release": "0.3.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.1",
+    "commit": "f6f8ed890ff1d4a67fe4d49292791c282bd694a8"
+  },
+  "_source": "https://github.com/fdomig/angular-themer.git",
+  "_target": "^0.3.1",
+  "_originalSource": "angular-themer",
+  "_direct": true
+}

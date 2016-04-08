@@ -1,0 +1,22 @@
+/*con-table*/
+.con-table-hd li{width:80px;height:42px;line-height:42px;text-align:center;font-size:17px;color:#FCFCFC;border:1px solid #e3e3e3;cursor:pointer; list-style:none; background: #00b360;}
+.con-table-hd li.cur{border-color:#777;border-right-color:#fff;position:relative;z-index:1;background-color: #777;}
+.con-table-bd{width:350px;height:510px;padding:10px;margin-left:-1px;border:1px solid #777;overflow-y:scroll;overflow-x:hidden;}
+.tag-item{padding:9px;border:1px solid transparent;cursor:pointer;}
+.tag-item:hover{border-color:#d4d4d4;}
+.con-table-bd .loading{text-align:center;}
+.fr{float:right}
+.fl{float:left;}
+
+/*调色*/
+.con-color{height:55px;}
+.color-select label input{margin:0 5px 0 20px;vertical-align:middle;}
+.color-tools-name{font-size:20px;font-weight:700;font-family:"Microsoft YaHei"}
+.colorPicker{width:55px;height:20px;line-height:20px;margin:0 10px 0 5px;vertical-align:bottom;}
+.color-checkbox{font-size:13px;cursor:pointer;transition:.2s;}
+.color-checkbox .ui-ico-check{margin-right:5px;vertical-align:sub;*vertical-align:middle;}
+.color-checkbox:hover,.labal-checked{color:#499EF3;}
+
+/*全局元素，可能跟其他css冲突*/
+body{background-color:#e3e3e3;font-size:14px;line-height: 1.42857143;font-family: "微软雅黑", "Microsoft YaHei", Monaco, "Helvetica Neue",Helvetica, Arial, sans-serif;}
+img{max-width:100%;}
