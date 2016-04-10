@@ -43,7 +43,7 @@ function startHTTPServers() {
 		app.engine('jade', require('jade').__express);
 		app.set('view engine', 'jade');
 
-		app.use("/public", express.static(__dirname + '/public'));
+		app.use("/", express.static(__dirname + '/public'));
 		app.use("/client", express.static(__dirname + '/client'))
 		app.use(bodyParser.json({limit: '1mb'}));
 		app.use(bodyParser.urlencoded({extended: true}));
