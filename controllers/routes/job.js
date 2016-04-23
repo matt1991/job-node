@@ -5,10 +5,8 @@
 
 module.exports = function(context, contextPath){
 	var app = context.app;
-	console.log("sadfadsf");
 
  	app.get(contextPath + "/*", function(req, res){
- 		console.log("sadfasdfsdfsadf");
  		// const template = require('./index.jade');
  		// const data = { title: '', description: '', css: '', body: '', entry: '/client/main.js' };
  		// console.log(template);

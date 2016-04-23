@@ -10,6 +10,9 @@ var http = require('http');
 	path = require('path'),
 	settings = require("./settings.js");
 
+	var cluster = require('cluster');
+
+
 function startHTTPServers() {
 	var servers = new Array();
 	var errorhandler = function errorhandler(err, req, res, next) {};
@@ -68,12 +71,15 @@ function startHTTPServers() {
 }
 
 function startMongoDB(){
-
+	var started = false;
 	mongoeseAutoIncrement.initialize(mongoose.connect(settings.get('database')));		
 	mongoose.set('debug', false);
 	mongoose.connection.on('connected', function() {
 		console.log('Mongoose default connection open to ' + settings.get('database'));        
-		startHTTPServers();
+		if (!started) {
+            startHTTPServers();
+            started = true;
+        }
 
 	});
 	mongoose.connection.on('disconnected', function() {
@@ -92,5 +98,24 @@ function startMongoDB(){
 
 }
 
-startMongoDB();
+
+var numCPUS = require('os').cpus().length;
+if (cluster.isMaster) {
+    console.log("I am master");
+    for (var i = 0; i < numCPUS; i++) {
+        cluster.fork();
+    };
+    cluster.on('disconnect', function(worker) {
+        console.error("disconnect");
+        cluster.fork();
+    });
+    cluster.on('exit', function(worker, code, signal) {
+        console.log('worker ' + worker.process.pid  + ' died');
+    });
+} else {
+	console.log("I am worker");
+    startMongoDB();
+    
+}
+
 
